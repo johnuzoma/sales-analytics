@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_sales
+    description: "Staging model for sales"
+    tests:
+      - dbt_expectations.expect_table_columns_to_match_set:
+          column_list: ["date", "salesperson", "lead_id", "segment", "region", "target_close", "forecasted_monthly_revenue", "opportunity_stage", "weighted_revenue", "closed_opportunity", "active_opportunity", "latest_status_entry", "loaded_at"]
+
+  - name: dim_lead
+    description: "Dimension table for leads with one row per lead_id"
+    columns:
+      - name: id
+        tests:
+          - unique
+
+  - name: dim_date
+    description: "Dimension table for dates with one row per date"
+    columns:
+      - name: date
+        tests:
+          - unique
+
+  - name: fct_sales_opportunities
+    description: "Fact table for sales opportunities"
+    columns:
+      - name: lead_id
+        tests:
+          - relationships:
+              to: ref('dim_lead')
+              field: id
+      - name: date
+        tests:
+          - relationships:
+              to: ref('dim_date')
+              field: date
+        
