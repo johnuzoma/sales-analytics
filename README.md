@@ -1,5 +1,5 @@
 ### Overview
-This personal project demonstrates how to build a scalable and maintainable data pipeline for sales analytics. The pipeline ingests raw sales data from Amazon S3, processes and transforms it using Snowflake and dbt, and exposes business insights via a Looker dashboard.
+This personal project demonstrates how to ingest raw sales data from Amazon S3 into Snowflake, process and transform it using dbt, and exposes business insights via a Looker dashboard.
 
 ### Key Features
 - Scalable cloud-based architecture
@@ -21,7 +21,7 @@ This personal project demonstrates how to build a scalable and maintainable data
 ### Data Lineage in dbt
 ![lineage](https://github.com/user-attachments/assets/97407f35-6523-40f1-92bc-34e1070665f5)
 
-### Looker Report
+### Looker Dashboard
 ![looker report](https://github.com/user-attachments/assets/e15596d8-cdde-4278-aa57-f95d51002c26)
 
 ### Implementation Steps 
